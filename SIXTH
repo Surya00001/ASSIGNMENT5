@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class NumberStats {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int smallest = Integer.MAX_VALUE;
+        int largest = Integer.MIN_VALUE;
+        int sum = 0;
+        int count = 0;
+
+        boolean continueInput = true;
+
+        while (continueInput) {
+            System.out.print("Enter a number (enter '0' to finish): ");
+            int num = scanner.nextInt();
+
+            if (num != 0) {
+                sum += num;
+                count++;
+
+                if (num < smallest) {
+                    smallest = num;
+                }
+
+                if (num > largest) {
+                    largest = num;
+                }
+            } else {
+                continueInput = false;
+            }
+        }
+
+        if (count > 0) {
+            double average = (double) sum / count;
+            System.out.println("Largest number: " + largest);
+            System.out.println("Smallest number: " + smallest);
+            System.out.println("Average: " + average);
+        } else {
+            System.out.println("No numbers were entered.");
+        }
+
+        scanner.close();
+    }
+}
